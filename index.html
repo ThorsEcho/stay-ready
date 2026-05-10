@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay Ready — Strategic Field Manual</title>
+<meta name="description" content="Stay Ready 365-day strategic plan and feedback portal.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-deep: #1A120B;
+  --bg-card: #2A1D12;
+  --bg-card-hi: #382616;
+  --bg-elev: #3D2A1B;
+  --border: #5C4226;
+  --border-soft: #4A3520;
+  --gold: #D9A441;
+  --gold-bright: #F0BC5C;
+  --gold-dim: #A87E2E;
+  --cream: #F5EDE0;
+  --tan: #C4A77D;
+  --tan-dim: #8E7551;
+  --warning: #D26B4F;
+  --success: #7A9659;
+  --danger: #C04434;
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-script: 'Allura', cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at top left, rgba(217, 164, 65, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(217, 164, 65, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Subtle paper grain on body */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* === HEADER / NAV === */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26, 18, 11, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.brand-script {
+  font-family: var(--font-script);
+  font-size: 36px;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--tan);
+  text-transform: uppercase;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-tab {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tan);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.nav-tab:hover {
+  color: var(--cream);
+  border-color: var(--border-soft);
+}
+
+.nav-tab.active {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+  background: rgba(217, 164, 65, 0.06);
+}
+
+/* === MAIN CONTAINER === */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === DOCTRINE STAMP / FM HEADER === */
+.fm-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+  background: rgba(217, 164, 65, 0.05);
+  text-transform: uppercase;
+}
+
+.fm-stamp::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2.4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 12px;
+  color: var(--cream);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--tan);
+  max-width: 720px;
+  margin-bottom: 48px;
+  line-height: 1.55;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold-dim) 80px, var(--border-soft) 80px, var(--border-soft) 100%);
+  margin: 48px 0;
+}
+
+/* === MISSION / OVERVIEW === */
+.hero {
+  position: relative;
+  padding: 32px 0 0;
+  margin-bottom: 64px;
+}
+
+.hero-quote {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cream);
+  margin: 32px 0;
+  max-width: 920px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.hero-quote .accent {
+  color: var(--gold);
+}
+
+.hero-tagline {
+  font-family: var(--font-script);
+  font-size: 32px;
+  color: var(--gold);
+  margin: 24px 0 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 48px 0;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  padding: 24px 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--tan);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat-detail {
+  font-size: 13px;
+  color: var(--tan);
+  margin-top: 8px;
+}
+
+/* === TYPOGRAPHY === */
+h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+  margin: 48px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+h2 .num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--gold);
+  margin-right: 12px;
+  letter-spacing: 0.1em;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin: 24px 0 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  color: var(--cream);
+}
+
+p.muted {
+  color: var(--tan);
+}
+
+strong {
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+ul, ol {
+  margin: 16px 0 16px 24px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--cream);
+}
+
+li::marker {
+  color: var(--gold);
+}
+
+/* === CARDS === */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.card-mono-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--tan);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border: 1px solid var(--border-soft);
+  border-radius: 2px;
+}
+
+/* === ROADMAP / PHASE CARDS === */
+.phase-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 32px 0 48px;
+  position: relative;
+}
+
+.phase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.phase-card:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+}
+
+.phase-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.phase-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  margin: 6px 0 4px;
+}
+
+.phase-days {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--tan);
+  margin-bottom: 20px;
+}
+
+.phase-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.phase-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.phase-row-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--tan);
+  text-transform: uppercase;
+}
+
+.phase-row-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--gold);
+}
+
+.phase-detail {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-soft);
+  font-size: 14px;
+  color: var(--tan);
+  line-height: 1.55;
+}
+
+/* === TABLES === */
+.table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: var(--bg-card-hi);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--cream);
+}
+
+td.num {
+  font-family: var(--font-mono);
+  text-align: right;
+  color: var(--gold-bright);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(217, 164, 65, 0.04);
+}
+
+tr.total td {
+  background: var(--bg-card-hi);
+  font-weight: 600;
+  color: var(--gold);
+  border-top: 1px solid var(--gold-dim);
+}
+
+/* === RISK BADGES === */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.badge.high { color: var(--danger); border-color: var(--danger); background: rgba(192, 68, 52, 0.1); }
+.badge.medium { color: var(--warning); border-color: var(--warning); background: rgba(210, 107, 79, 0.1); }
+.badge.low { color: var(--success); border-color: var(--success); background: rgba(122, 150, 89, 0.1); }
+.badge.crit { color: #fff; border-color: var(--danger); background: var(--danger); }
+
+/* === CHARTS === */
+.chart-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 32px;
+  margin: 24px 0;
+}
+
+.chart-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.chart-subtitle {
+  font-size: 13px;
+  color: var(--tan);
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .chart-row { grid-template-columns: 1fr; }
+}
+
+/* === FORM === */
+.form-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 32px 36px;
+  margin-bottom: 24px;
+}
+
+.form-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.form-section-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+.form-section-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+}
+
+.form-section-desc {
+  font-size: 14px;
+  color: var(--tan);
+  margin: 16px 0 24px;
+}
+
+.field {
+  margin-bottom: 28px;
+}
+
+.field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.field-desc {
+  font-size: 13px;
+  color: var(--tan);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field textarea,
+.field select {
+  width: 100%;
+  background: var(--bg-deep);
+  color: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--bg-card);
+}
+
+.field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.field textarea.tall {
+  min-height: 140px;
+}
+
+/* Radio / Choice cards */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.choice-grid label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.15s;
+  color: var(--cream);
+}
+
+.choice-grid label:hover {
+  border-color: var(--gold-dim);
+  background: var(--bg-card-hi);
+}
+
+.choice-grid input[type="radio"] {
+  display: none;
+}
+
+.choice-grid input[type="radio"]:checked + span {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.choice-grid label:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(217, 164, 65, 0.08);
+}
+
+/* Confidence stars */
+.confidence-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.confidence-row label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--tan);
+  transition: all 0.15s;
+}
+
+.confidence-row label:hover {
+  border-color: var(--gold-dim);
+  color: var(--cream);
+}
+
+.confidence-row input { display: none; }
+
+.confidence-row label:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(217, 164, 65, 0.1);
+  color: var(--gold);
+}
+
+.confidence-scale {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--tan);
+  letter-spacing: 0.1em;
+  margin-left: 12px;
+  text-transform: uppercase;
+}
+
+/* === SAVE STATUS / SUBMIT BAR === */
+.submit-bar {
+  position: sticky;
+  bottom: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  flex-wrap: wrap;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.save-status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--tan);
+  letter-spacing: 0.05em;
+}
+
+.save-status .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--cream);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn.primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+}
+
+.btn.primary:hover {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  color: var(--bg-deep);
+}
+
+/* === FOOTER === */
+footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 48px 32px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--tan);
+  margin-top: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+footer .quote {
+  font-family: var(--font-script);
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* === KEY POINT BLOCK === */
+.thesis-block {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hi) 100%);
+  border: 1px solid var(--gold-dim);
+  border-left: 4px solid var(--gold);
+  padding: 32px 36px;
+  margin: 32px 0;
+  border-radius: 4px;
+  position: relative;
+}
+
+.thesis-block::before {
+  content: 'CENTRAL THESIS';
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  position: absolute;
+  top: -8px;
+  left: 24px;
+  background: var(--bg-deep);
+  padding: 0 10px;
+}
+
+.thesis-block p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Roadmap SVG container */
+.roadmap-svg-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  padding: 24px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .header-inner { padding: 12px 20px; }
+  main { padding: 32px 20px 64px; }
+  .nav-tabs { gap: 2px; }
+  .nav-tab { font-size: 11px; padding: 6px 10px; letter-spacing: 0.08em; }
+  .brand-script { font-size: 28px; }
+  .form-section { padding: 24px 20px; }
+  .card { padding: 20px 22px; }
+  .stat-value { font-size: 32px; }
+  .submit-bar { flex-direction: column; align-items: stretch; }
+}
+
+/* Print optimization (some folks will print this) */
+@media print {
+  .site-header, .submit-bar, footer { display: none; }
+  .section { display: block !important; page-break-after: always; }
+  body { background: white; color: black; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================== -->
+<!-- HEADER -->
+<!-- ============================================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-script">Stay Ready</span>
+      <span class="brand-mark">— San Diego</span>
+    </div>
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab active" data-tab="mission">Mission</button>
+      <button class="nav-tab" data-tab="model">Model</button>
+      <button class="nav-tab" data-tab="roadmap">Roadmap</button>
+      <button class="nav-tab" data-tab="financials">Financials</button>
+      <button class="nav-tab" data-tab="risks">Risks</button>
+      <button class="nav-tab" data-tab="feedback">Feedback</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================== -->
+<!-- SECTION: MISSION -->
+<!-- ============================================== -->
+<section class="section active" id="mission">
+  <div class="hero">
+    <div class="fm-stamp">FM 1-00.03 · Strategic Field Manual</div>
+    <h1 class="section-title">The Mission</h1>
+    <p class="section-subtitle">A 365-day plan to take Stay Ready from a kitchen operation to a $100K net-profit lifestyle brand. Bootstrapped. Disciplined. Owner-operated.</p>
+
+    <div class="thesis-block">
+      <p>Stay Ready is a <strong>media company</strong> that monetizes through <strong>bars</strong> (subscription), <strong>apparel</strong> (ambassador), and <strong>ideology</strong> (field manual). The brand is the moat. The bars pay the bills. Luie is the engine.</p>
+    </div>
+
+    <div class="hero-quote">
+      You don't sell bars. You sell <span class="accent">membership</span> in a worldview — and the bar is the daily proof of that membership.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Capital Deployed</div>
+        <div class="stat-value">$25K</div>
+        <div class="stat-detail">Hard kill-switch · across 365 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Net Profit Target</div>
+        <div class="stat-value">$100K</div>
+        <div class="stat-detail">~35% blended net margin</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Topline Required</div>
+        <div class="stat-value">$285K</div>
+        <div class="stat-detail">Across all product lines</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Subscription Anchor</div>
+        <div class="stat-value">215</div>
+        <div class="stat-detail">Active subs by month 6 = the cheat code</div>
+      </div>
+    </div>
+  </div>
+
+  <h2><span class="num">1.0</span>The brand DNA</h2>
+  <p>"Stay Ready" isn't a product slogan — it's a worldview. Built on four pillars from the field manual: <strong>Mindset · Conduct · Readiness · Character</strong>. Applied to everything from how you train to how you eat to how you show up.</p>
+  <p>Target audience: hardcore athletes, operators, and anyone who does hard work and isn't afraid of carbs and fats. The mindset is for everyone. The product is for the ones putting in the reps.</p>
+
+  <h2><span class="num">2.0</span>Why this works</h2>
+  <p class="muted">Every successful lifestyle brand we're learning from — Liquid Death, Liver King, KillCliff, Goggins — shares one trait: the founder <em>is</em> the brand, and the product is the artifact people buy to participate in the worldview.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-mono-tag">ASSET 01</div>
+      <div class="card-title">The Founder</div>
+      <p class="muted">Luie. 50, fit-as-fuck, all-in, willing to be on camera daily. The single biggest asset on the balance sheet. Zero-CAC growth channel.</p>
+    </div>
+    <div class="card">
+      <div class="card-mono-tag">ASSET 02</div>
+      <div class="card-title">The Ideology</div>
+      <p class="muted">The Field Manual codifies what the brand believes. Free wallet card with every order. Premium boxed set later. The cult formation tool.</p>
+    </div>
+    <div class="card">
+      <div class="card-mono-tag">ASSET 03</div>
+      <div class="card-title">SOF Halo</div>
+      <p class="muted">Network access to Special Forces and SEALs. Year 1 = credibility asset. Year 2 = potential channel. Don't rush this.</p>
+    </div>
+    <div class="card">
+      <div class="card-mono-tag">ASSET 04</div>
+      <div class="card-title">The Recurring Bar</div>
+      <p class="muted">$1.25 COGS. Subscription compounds. 215 active subs = the path to $100K. Without it, the math doesn't work in 365 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== -->
+<!-- SECTION: BUSINESS MODEL -->
+<!-- ============================================== -->
+<section class="section" id="model">
+  <div class="fm-stamp">FM 1-00.04 · Business Model</div>
+  <h1 class="section-title">The Model</h1>
+  <p class="section-subtitle">Three product lines, one brand. Each line has a job — only one carries the P&L.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-mono-tag">PRIMARY · 70% OF NET</div>
+      <div class="card-title">Bars</div>
+      <p>320 cal endurance bar · 15P / 31C / 15F. <strong>The recurring revenue engine.</strong></p>
+      <ul>
+        <li>Subscription compounds — this is the cheat code</li>
+        <li>$4.50 retail / $3.75 in subscription</li>
+        <li>$1.25 COGS · ~58–72% gross margin</li>
+        <li>12-bar monthly box at $54</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-mono-tag">SECONDARY · 20% OF NET</div>
+      <div class="card-title">Apparel</div>
+      <p>Next Level tri-blend. <strong>Paid marketing on people's backs.</strong> Not a profit center.</p>
+      <ul>
+        <li>$12.65 all-in cost</li>
+        <li>Suggested retail: $30–35</li>
+        <li>Modest margin, reinvest in ads</li>
+        <li>Quarterly drops, limited runs</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-mono-tag">TERTIARY · 5% OF NET</div>
+      <div class="card-title">Field Manual</div>
+      <p>The doctrine. <strong>Free with every order. Paid premium boxed set.</strong></p>
+      <ul>
+        <li>Free wallet cards = brand evangelism</li>
+        <li>$20 boxed set with full set of cards</li>
+        <li>Lead magnet for email capture</li>
+        <li>The cult formation tool</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="num">3.0</span>Revenue mix · path to $100K net</h2>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Revenue mix</div>
+    <div class="chart-subtitle">Where the $100K of net profit comes from across 12 months</div>
+    <div class="chart-row">
+      <div class="chart-container"><canvas id="revenueMixChart"></canvas></div>
+      <div class="chart-container"><canvas id="cumulativeChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Revenue Line</th>
+          <th>Topline</th>
+          <th>Net</th>
+          <th>% of Net</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bars — subscription</td>
+          <td class="num">$140,000</td>
+          <td class="num">$52,000</td>
+          <td class="num">52%</td>
+          <td>~215 active subs avg @ $54/box</td>
+        </tr>
+        <tr>
+          <td>Bars — one-time / events</td>
+          <td class="num">$60,000</td>
+          <td class="num">$20,000</td>
+          <td class="num">20%</td>
+          <td>DTC singles, 6-packs, event sales</td>
+        </tr>
+        <tr>
+          <td>Apparel</td>
+          <td class="num">$60,000</td>
+          <td class="num">$20,000</td>
+          <td class="num">20%</td>
+          <td>~1,800 shirts at $30–35 retail</td>
+        </tr>
+        <tr>
+          <td>Field Manual (paid set)</td>
+          <td class="num">$15,000</td>
+          <td class="num">$5,000</td>
+          <td class="num">5%</td>
+          <td>$20 boxed set · 750 units</td>
+        </tr>
+        <tr>
+          <td>Wholesale / SOF pilot</td>
+          <td class="num">$10,000</td>
+          <td class="num">$3,000</td>
+          <td class="num">3%</td>
+          <td>2–3 boxes / specialty retail</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td class="num">$285,000</td>
+          <td class="num">$100,000</td>
+          <td class="num">100%</td>
+          <td>Year 1 target</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="num">4.0</span>Subscription unit economics — the cheat code</h2>
+  <p>The 12-bar monthly subscription box is the entire game. If we hit ~215 active subs by Day 180 and hold, the math compounds to $100K. If not, it doesn't.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Line Item</th>
+          <th>Per Box</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Box price (12 bars)</td><td class="num">$54.00</td><td>$4.50/bar in subscription</td></tr>
+        <tr><td>COGS (12 × $1.25)</td><td class="num">($15.00)</td><td>Bar production cost</td></tr>
+        <tr><td>Packaging</td><td class="num">($5.00)</td><td>Box, mailer, inserts</td></tr>
+        <tr><td>Shipping</td><td class="num">($7.00)</td><td>USPS / UPS Ground</td></tr>
+        <tr><td>Payment fees (~3%)</td><td class="num">($1.60)</td><td>Stripe / Shopify</td></tr>
+        <tr class="total"><td>Net per box</td><td class="num">$25.40</td><td>~47% net margin</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:24px"><strong>Math check:</strong> ~3,940 boxes / year × $25.40 net = $100K from subscription alone if held to. Reality: blended with one-time, apparel, and FM sets, sub revenue covers ~52% of the goal.</p>
+</section>
+
+<!-- ============================================== -->
+<!-- SECTION: ROADMAP -->
+<!-- ============================================== -->
+<section class="section" id="roadmap">
+  <div class="fm-stamp">FM 1-00.05 · 365-Day Roadmap</div>
+  <h1 class="section-title">The Path</h1>
+  <p class="section-subtitle">Four phases. Four budgets. Four stage gates. If a gate misses, that's the trigger to pause and reassess before deploying more capital.</p>
+
+  <div class="roadmap-svg-wrap">
+    <svg width="100%" viewBox="0 0 680 230" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Stay Ready 365-day roadmap</title>
+      <desc>Four sequential phases from Day 1 to Day 365 with budget and stage-gate metrics.</desc>
+      <defs>
+        <marker id="arrowR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#D9A441" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <g>
+        <rect x="46" y="40" width="130" height="160" rx="4" fill="#2A1D12" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="111" y="64" text-anchor="middle" fill="#D9A441" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">PHASE 1</text>
+        <text x="111" y="92" text-anchor="middle" fill="#F5EDE0" font-family="Oswald, sans-serif" font-size="20" font-weight="600">FOUNDATIONS</text>
+        <text x="111" y="112" text-anchor="middle" fill="#C4A77D" font-family="JetBrains Mono, monospace" font-size="11">DAYS 1–60</text>
+        <line x1="66" y1="128" x2="156" y2="128" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="111" y="152" text-anchor="middle" fill="#F5EDE0" font-family="DM Sans, sans-serif" font-size="13">$8K budget</text>
+        <text x="111" y="180" text-anchor="middle" fill="#D9A441" font-family="Oswald, sans-serif" font-size="16" font-weight="600">100 SALES</text>
+      </g>
+      <line x1="176" y1="120" x2="199" y2="120" stroke="#D9A441" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+      <g>
+        <rect x="199" y="40" width="130" height="160" rx="4" fill="#2A1D12" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="264" y="64" text-anchor="middle" fill="#D9A441" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">PHASE 2</text>
+        <text x="264" y="92" text-anchor="middle" fill="#F5EDE0" font-family="Oswald, sans-serif" font-size="20" font-weight="600">VALIDATION</text>
+        <text x="264" y="112" text-anchor="middle" fill="#C4A77D" font-family="JetBrains Mono, monospace" font-size="11">DAYS 61–180</text>
+        <line x1="219" y1="128" x2="309" y2="128" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="264" y="152" text-anchor="middle" fill="#F5EDE0" font-family="DM Sans, sans-serif" font-size="13">$10K budget</text>
+        <text x="264" y="180" text-anchor="middle" fill="#D9A441" font-family="Oswald, sans-serif" font-size="16" font-weight="600">150 SUBS</text>
+      </g>
+      <line x1="329" y1="120" x2="352" y2="120" stroke="#D9A441" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+      <g>
+        <rect x="352" y="40" width="130" height="160" rx="4" fill="#2A1D12" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="417" y="64" text-anchor="middle" fill="#D9A441" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">PHASE 3</text>
+        <text x="417" y="92" text-anchor="middle" fill="#F5EDE0" font-family="Oswald, sans-serif" font-size="20" font-weight="600">SCALE</text>
+        <text x="417" y="112" text-anchor="middle" fill="#C4A77D" font-family="JetBrains Mono, monospace" font-size="11">DAYS 181–300</text>
+        <line x1="372" y1="128" x2="462" y2="128" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="417" y="152" text-anchor="middle" fill="#F5EDE0" font-family="DM Sans, sans-serif" font-size="13">$5K budget</text>
+        <text x="417" y="180" text-anchor="middle" fill="#D9A441" font-family="Oswald, sans-serif" font-size="16" font-weight="600">215 SUBS</text>
+      </g>
+      <line x1="482" y1="120" x2="505" y2="120" stroke="#D9A441" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+      <g>
+        <rect x="505" y="40" width="130" height="160" rx="4" fill="#2A1D12" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="570" y="64" text-anchor="middle" fill="#D9A441" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">PHASE 4</text>
+        <text x="570" y="92" text-anchor="middle" fill="#F5EDE0" font-family="Oswald, sans-serif" font-size="20" font-weight="600">CONSOLIDATE</text>
+        <text x="570" y="112" text-anchor="middle" fill="#C4A77D" font-family="JetBrains Mono, monospace" font-size="11">DAYS 301–365</text>
+        <line x1="525" y1="128" x2="615" y2="128" stroke="#5C4226" stroke-width="0.5"/>
+        <text x="570" y="152" text-anchor="middle" fill="#F5EDE0" font-family="DM Sans, sans-serif" font-size="13">$2K budget</text>
+        <text x="570" y="180" text-anchor="middle" fill="#D9A441" font-family="Oswald, sans-serif" font-size="16" font-weight="600">$100K NET</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2><span class="num">5.1</span>Phase 1 — Foundations</h2>
+  <p class="muted"><strong>Days 1–60 · $8K · Goal: legal, live, first 100 sales.</strong></p>
+  <ul>
+    <li>File the trademark this week — "STAY READY" word mark, Class 25 (apparel) + Class 29/30 (food)</li>
+    <li>Lock the kitchen — verify aunt's pastry shop has current health permit + ServSafe-certified manager</li>
+    <li>FDA-compliant labels — nutrition panel, ingredients, allergen statement, net weight, manufacturer info</li>
+    <li>Product liability insurance, food-specific — non-optional</li>
+    <li>Business bank account + accounting in QuickBooks</li>
+    <li>Shopify build — bars (single / 6-pack / sub), shirt, free FM card capture</li>
+    <li>Pricing reset — $4.50 retail / $3.75 sub. Current $3 leaves money on the table</li>
+    <li>June 21 event — bring 300 bars, 80 shirts, signage. Goal: 150 customers, 100 emails, 30 first subscribers</li>
+  </ul>
+
+  <h2><span class="num">5.2</span>Phase 2 — Validation</h2>
+  <p class="muted"><strong>Days 61–180 · $10K · Goal: 150 active subscribers, content cadence locked.</strong></p>
+  <ul>
+    <li>Luie content: 5x/week minimum across IG + TikTok — workouts, philosophy clips, behind-the-scenes</li>
+    <li>Podcast tour: gym buddy first, then 8–12 fitness/veteran/lifestyle podcasts in 90 days</li>
+    <li>1 in-person event/month — CrossFit comps, Spartan-adjacent, veteran charity events</li>
+    <li>Subscription launch (Day 75) — three tiers: 6-bar ($28), 12-bar ($54), 24-bar ($102)</li>
+    <li>Email/SMS automation — cart abandon, sub pause/skip flows</li>
+    <li>Wholesale conversations begin: 5 local boxes (CrossFit/F45), 2 specialty retailers</li>
+    <li>One MWR / unit point-of-contact via Luie's network — relationship building only</li>
+  </ul>
+
+  <h2><span class="num">5.3</span>Phase 3 — Scale</h2>
+  <p class="muted"><strong>Days 181–300 · $5K · Goal: 215+ subs holding, production scaled.</strong></p>
+  <ul>
+    <li>Co-packer conversations — small-batch SoCal co-packers, target $1.50–1.75/bar at 5K-bar minimums</li>
+    <li>2nd bar SKU launch — drives subscription retention by 20–30%</li>
+    <li>Premium field manual boxed set — $20 retail, ~$6 cost</li>
+    <li>Apparel drop #2 — new colorways, limited runs (200–400 units)</li>
+    <li>SOF/SEAL channel pursuit — first formal pitch to a unit or MWR program</li>
+    <li>Podcast / PR push to amplify momentum</li>
+  </ul>
+
+  <h2><span class="num">5.4</span>Phase 4 — Consolidate</h2>
+  <p class="muted"><strong>Days 301–365 · $2K · Goal: hit $100K, build Year 2 thesis.</strong></p>
+  <ul>
+    <li>Q4 holiday push — gift bundles, "Stay Ready Year One" anniversary box</li>
+    <li>Year 2 thesis: wholesale activation, second product category (hydration? recovery shake?), or vertical content</li>
+    <li>Don't add complexity until $100K is locked</li>
+  </ul>
+</section>
+
+<!-- ============================================== -->
+<!-- SECTION: FINANCIALS -->
+<!-- ============================================== -->
+<section class="section" id="financials">
+  <div class="fm-stamp">FM 1-00.06 · Financials</div>
+  <h1 class="section-title">The Money</h1>
+  <p class="section-subtitle">Capital plan, unit economics, and the cumulative path to $100K net profit.</p>
+
+  <h2><span class="num">6.0</span>Capital deployment by phase</h2>
+  <div class="chart-wrap">
+    <div class="chart-title">$25K total capital · phased release</div>
+    <div class="chart-subtitle">Each phase budget unlocks only when the prior stage gate is hit</div>
+    <div class="chart-container"><canvas id="capitalChart"></canvas></div>
+  </div>
+
+  <h2><span class="num">6.1</span>Phase 1 budget breakdown — $8K</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Line Item</th><th>Cost</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Trademark + legal</td><td class="num">$1,500</td><td>USPTO filing, 2 classes, attorney clearance</td></tr>
+        <tr><td>FDA labels + product liability insurance</td><td class="num">$1,000</td><td>Labeling consultant + annual food liability policy</td></tr>
+        <tr><td>Shopify + apps + domain + email</td><td class="num">$500</td><td>Klaviyo, ReCharge, basic apps</td></tr>
+        <tr><td>Initial apparel batch</td><td class="num">$750</td><td>Entry tier — ~60 shirts</td></tr>
+        <tr><td>Bar ingredients (4–6 weeks)</td><td class="num">$2,000</td><td>Buffer for first sub launches + events</td></tr>
+        <tr><td>Packaging (boxes, mailers, stickers, inserts)</td><td class="num">$1,000</td><td>Branded shipping experience</td></tr>
+        <tr><td>Event materials, signage, banner</td><td class="num">$750</td><td>June 21 + first month of pop-ups</td></tr>
+        <tr><td>Buffer</td><td class="num">$500</td><td>Variance reserve</td></tr>
+        <tr class="total"><td>Total</td><td class="num">$8,000</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="num">6.2</span>Apparel unit economics</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pricing Scenario</th><th>Cost</th><th>Retail</th><th>Gross / unit</th><th>Net / unit (post-fees)</th></tr></thead>
+      <tbody>
+        <tr><td>Conservative</td><td class="num">$12.65</td><td class="num">$28</td><td class="num">$15.35</td><td class="num">~$10</td></tr>
+        <tr><td>Recommended</td><td class="num">$12.65</td><td class="num">$32</td><td class="num">$19.35</td><td class="num">~$13</td></tr>
+        <tr><td>Premium</td><td class="num">$12.65</td><td class="num">$35</td><td class="num">$22.35</td><td class="num">~$15</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">At ~$13 net/shirt, hitting $20K net requires ~1,540 shirts. At ~$15 net, ~1,330 shirts. Recommendation: start at $32 retail, test demand at June 21 event.</p>
+
+  <h2><span class="num">6.3</span>Bar unit economics — three pricing scenarios</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Channel</th><th>Cost</th><th>Retail</th><th>Gross / bar</th><th>Gross %</th></tr></thead>
+      <tbody>
+        <tr><td>Current (homemade)</td><td class="num">$1.25</td><td class="num">$3.00</td><td class="num">$1.75</td><td class="num">58%</td></tr>
+        <tr><td>Subscription (recommended)</td><td class="num">$1.25</td><td class="num">$3.75</td><td class="num">$2.50</td><td class="num">67%</td></tr>
+        <tr><td>One-time DTC retail</td><td class="num">$1.25</td><td class="num">$4.50</td><td class="num">$3.25</td><td class="num">72%</td></tr>
+        <tr><td>Wholesale (50% off retail)</td><td class="num">$1.25</td><td class="num">$2.25</td><td class="num">$1.00</td><td class="num">44%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================== -->
+<!-- SECTION: RISKS -->
+<!-- ============================================== -->
+<section class="section" id="risks">
+  <div class="fm-stamp">FM 1-00.07 · Risk Register</div>
+  <h1 class="section-title">The Risks</h1>
+  <p class="section-subtitle">Eight risks I'd plan around. Each has a hedge. The kill-switch ($25K loss) is the final hedge.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Risk</th>
+          <th>Likelihood</th>
+          <th>Impact</th>
+          <th>Hedge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Trademark conflict</strong> with existing mark</td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge high">High</span></td>
+          <td>File immediately. Clearance search before any media spend.</td>
+        </tr>
+        <tr>
+          <td><strong>Cottage food law gap</strong> — whey + refrigerated bar likely won't qualify in CA</td>
+          <td><span class="badge high">High</span></td>
+          <td><span class="badge high">High</span></td>
+          <td>Aunt's licensed kitchen is the answer. Don't sell DTC until kitchen + label compliant.</td>
+        </tr>
+        <tr>
+          <td><strong>Founder content cadence</strong> drops off</td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge crit">Critical</span></td>
+          <td>30-day content bank in Phase 1. Bring in part-time content assistant Phase 2.</td>
+        </tr>
+        <tr>
+          <td><strong>Subscription churn</strong> &gt; 10%/month</td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge high">High</span></td>
+          <td>2nd SKU by Day 200. Pause-don't-cancel flow. Surprise FM drops in boxes.</td>
+        </tr>
+        <tr>
+          <td><strong>Apparel dead-stock</strong> on a drop</td>
+          <td><span class="badge low">Low–Med</span></td>
+          <td><span class="badge medium">Medium</span></td>
+          <td>Pre-orders for drops 2+. Conservative batch sizes. Color rotation.</td>
+        </tr>
+        <tr>
+          <td><strong>Single-founder dependency</strong> — injury, burnout</td>
+          <td><span class="badge high">High</span></td>
+          <td><span class="badge crit">Critical</span></td>
+          <td>SOPs documented Day 1. Personal disability insurance. Wife trained on ops basics.</td>
+        </tr>
+        <tr>
+          <td><strong>Liability event</strong> from food product</td>
+          <td><span class="badge low">Low</span></td>
+          <td><span class="badge crit">Catastrophic</span></td>
+          <td>Product liability insurance Day 1. Allergen labeling. Lot tracking from first batch.</td>
+        </tr>
+        <tr>
+          <td><strong>Capital exhaustion</strong> before subscription compounds</td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge crit">Critical</span></td>
+          <td>Stage gates at Day 60, 120, 180. Cut spend if behind. Kill at $25K loss.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="num">7.0</span>Open items requiring Luie's call</h2>
+  <ol>
+    <li><strong>Aunt's kitchen</strong> — confirm health permit + her actual willingness to formalize. The cost-structure linchpin.</li>
+    <li><strong>SOF/SEAL</strong> — does he want to actively pitch units in Year 1, or hold for Year 2?</li>
+    <li><strong>Field manual</strong> — confirm free-card-with-orders + paid boxed set model.</li>
+    <li><strong>Content commitment</strong> — verbal lock on 5x/week minimum.</li>
+    <li><strong>Trademark</strong> — DIY USPTO ($350) or attorney-led ($1,500)?</li>
+  </ol>
+  <p class="muted">→ All of these are in the feedback form. Answer there, not here.</p>
+</section>
+
+<!-- ============================================== -->
+<!-- SECTION: FEEDBACK -->
+<!-- ============================================== -->
+<section class="section" id="feedback">
+  <div class="fm-stamp">FM 1-00.08 · Field Feedback</div>
+  <h1 class="section-title">The Questions</h1>
+  <p class="section-subtitle">Answers auto-save as you type. When you're done, hit "send to Shane" at the bottom — it'll open your email with everything pre-filled. Take your time. No need to do it in one sitting.</p>
+
+  <form id="feedbackForm">
+
+    <!-- A. Plan Review -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">A.0</span>
+        <span class="form-section-title">Strategic Plan Review</span>
+      </div>
+      <p class="form-section-desc">Rate confidence in each phase 1 (low) to 5 (locked in). Anything you'd change?</p>
+
+      <!-- Phase 1 -->
+      <div class="field">
+        <label class="field-label">A.1 — Phase 1: Foundations (Days 1–60)</label>
+        <p class="field-desc">Trademark, kitchen, labels, Shopify, June 21 launch. $8K budget. Gate: 100 sales.</p>
+        <div class="confidence-row">
+          <label><input type="radio" name="conf_p1" value="1"><span>1</span></label>
+          <label><input type="radio" name="conf_p1" value="2"><span>2</span></label>
+          <label><input type="radio" name="conf_p1" value="3"><span>3</span></label>
+          <label><input type="radio" name="conf_p1" value="4"><span>4</span></label>
+          <label><input type="radio" name="conf_p1" value="5"><span>5</span></label>
+          <span class="confidence-scale">1 = uncertain · 5 = locked in</span>
+        </div>
+        <textarea name="comment_p1" placeholder="What would you change, add, or cut from Phase 1?" style="margin-top:12px"></textarea>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="field">
+        <label class="field-label">A.2 — Phase 2: Validation (Days 61–180)</label>
+        <p class="field-desc">Subscription launch, 5x/week content, podcast tour, monthly events. $10K budget. Gate: 150 subs.</p>
+        <div class="confidence-row">
+          <label><input type="radio" name="conf_p2" value="1"><span>1</span></label>
+          <label><input type="radio" name="conf_p2" value="2"><span>2</span></label>
+          <label><input type="radio" name="conf_p2" value="3"><span>3</span></label>
+          <label><input type="radio" name="conf_p2" value="4"><span>4</span></label>
+          <label><input type="radio" name="conf_p2" value="5"><span>5</span></label>
+          <span class="confidence-scale">1 = uncertain · 5 = locked in</span>
+        </div>
+        <textarea name="comment_p2" placeholder="Phase 2 thoughts..." style="margin-top:12px"></textarea>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="field">
+        <label class="field-label">A.3 — Phase 3: Scale (Days 181–300)</label>
+        <p class="field-desc">Co-packer talks, 2nd SKU, apparel drop #2, SOF channel push. $5K budget. Gate: 215 subs holding.</p>
+        <div class="confidence-row">
+          <label><input type="radio" name="conf_p3" value="1"><span>1</span></label>
+          <label><input type="radio" name="conf_p3" value="2"><span>2</span></label>
+          <label><input type="radio" name="conf_p3" value="3"><span>3</span></label>
+          <label><input type="radio" name="conf_p3" value="4"><span>4</span></label>
+          <label><input type="radio" name="conf_p3" value="5"><span>5</span></label>
+          <span class="confidence-scale">1 = uncertain · 5 = locked in</span>
+        </div>
+        <textarea name="comment_p3" placeholder="Phase 3 thoughts..." style="margin-top:12px"></textarea>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="field">
+        <label class="field-label">A.4 — Phase 4: Consolidate (Days 301–365)</label>
+        <p class="field-desc">Q4 push, hit $100K, plan Year 2. $2K budget. Gate: $100K net.</p>
+        <div class="confidence-row">
+          <label><input type="radio" name="conf_p4" value="1"><span>1</span></label>
+          <label><input type="radio" name="conf_p4" value="2"><span>2</span></label>
+          <label><input type="radio" name="conf_p4" value="3"><span>3</span></label>
+          <label><input type="radio" name="conf_p4" value="4"><span>4</span></label>
+          <label><input type="radio" name="conf_p4" value="5"><span>5</span></label>
+          <span class="confidence-scale">1 = uncertain · 5 = locked in</span>
+        </div>
+        <textarea name="comment_p4" placeholder="Phase 4 thoughts..." style="margin-top:12px"></textarea>
+      </div>
+    </div>
+
+    <!-- B. Brand & Voice -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">B.0</span>
+        <span class="form-section-title">Brand & Identity</span>
+      </div>
+      <p class="form-section-desc">The brand only works if the founder is honest about what it is and isn't.</p>
+
+      <div class="field">
+        <label class="field-label">B.1 — Three brands you admire most</label>
+        <p class="field-desc">Name 'em and what specifically you'd steal. (e.g. "Patagonia — their environmental conviction")</p>
+        <textarea name="brand_admire" class="tall"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">B.2 — The line you won't cross brand-wise</label>
+        <p class="field-desc">Politics? Religion? Specific influencers? What's a hard "no" for the brand voice?</p>
+        <textarea name="brand_line"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">B.3 — Anti-brand</label>
+        <p class="field-desc">If Stay Ready had an enemy or "anti-brand" to position against, who or what is it? (Liquid Death's was bottled water.)</p>
+        <textarea name="brand_anti"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">B.4 — Pick the closest aesthetic vibe</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="brand_vibe" value="stoic"><span>Stoic / Disciplined</span></label>
+          <label><input type="radio" name="brand_vibe" value="rugged"><span>Rugged / Raw</span></label>
+          <label><input type="radio" name="brand_vibe" value="refined"><span>Refined / Elevated</span></label>
+          <label><input type="radio" name="brand_vibe" value="punk"><span>Irreverent / Punk</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">B.5 — What does "Stay Ready" mean when no one's watching?</label>
+        <p class="field-desc">The most honest answer wins.</p>
+        <textarea name="brand_meaning" class="tall"></textarea>
+      </div>
+    </div>
+
+    <!-- C. Product Decisions -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">C.0</span>
+        <span class="form-section-title">Product Decisions</span>
+      </div>
+      <p class="form-section-desc">These are pricing and SKU calls that lock in pretty quickly.</p>
+
+      <div class="field">
+        <label class="field-label">C.1 — Subscription pricing — $54 / 12-bar box. Thoughts?</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="sub_price" value="lower"><span>Too high — try $48</span></label>
+          <label><input type="radio" name="sub_price" value="right"><span>Feels right at $54</span></label>
+          <label><input type="radio" name="sub_price" value="higher"><span>Could go to $60</span></label>
+          <label><input type="radio" name="sub_price" value="restructure"><span>Different structure</span></label>
+        </div>
+        <textarea name="sub_price_note" placeholder="Pricing thoughts (especially if you picked 'different structure')..." style="margin-top:12px"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">C.2 — Apparel target retail</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="apparel_price" value="28"><span>$28 — accessible</span></label>
+          <label><input type="radio" name="apparel_price" value="32"><span>$32 — recommended</span></label>
+          <label><input type="radio" name="apparel_price" value="35"><span>$35 — premium</span></label>
+          <label><input type="radio" name="apparel_price" value="other"><span>Other (note below)</span></label>
+        </div>
+        <textarea name="apparel_price_note" placeholder="Pricing thoughts..." style="margin-top:12px"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">C.3 — Field manual structure</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="fm_model" value="free"><span>Free with orders only</span></label>
+          <label><input type="radio" name="fm_model" value="paid"><span>Paid premium only</span></label>
+          <label><input type="radio" name="fm_model" value="both"><span>Both — free card + paid set</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">C.4 — Closest existing bar to yours, taste-wise</label>
+        <p class="field-desc">For ad copy, positioning, and competitor benchmarking.</p>
+        <input type="text" name="bar_reference" placeholder="e.g. RXBAR's chocolate sea salt, but denser">
+      </div>
+
+      <div class="field">
+        <label class="field-label">C.5 — Next bar SKU you'd develop</label>
+        <p class="field-desc">When subscription retention demands a 2nd flavor (~Day 200).</p>
+        <textarea name="next_sku"></textarea>
+      </div>
+    </div>
+
+    <!-- D. Customer & Community -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">D.0</span>
+        <span class="form-section-title">Customer & Community</span>
+      </div>
+
+      <div class="field">
+        <label class="field-label">D.1 — Ideal customer in 3 sentences</label>
+        <p class="field-desc">Who they are. What they do daily. What they wear.</p>
+        <textarea name="ideal_customer" class="tall"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">D.2 — Ambassador program</label>
+        <p class="field-desc">Open door for athletes / operators to rep the brand?</p>
+        <div class="choice-grid">
+          <label><input type="radio" name="ambassador" value="yes"><span>Yes — Year 1</span></label>
+          <label><input type="radio" name="ambassador" value="later"><span>Year 2</span></label>
+          <label><input type="radio" name="ambassador" value="no"><span>Not interested</span></label>
+        </div>
+        <textarea name="ambassador_note" placeholder="Structure thoughts..." style="margin-top:12px"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">D.3 — First community ritual</label>
+        <p class="field-desc">Daily check-in post? Weekly challenge? Monthly meetup? What's the ritual that gives the community a heartbeat?</p>
+        <textarea name="ritual"></textarea>
+      </div>
+    </div>
+
+    <!-- E. Content & Operations -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">E.0</span>
+        <span class="form-section-title">Content & Operations</span>
+      </div>
+
+      <div class="field">
+        <label class="field-label">E.1 — Most natural content format for you</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="content_format" value="long_video"><span>Long video</span></label>
+          <label><input type="radio" name="content_format" value="short_clips"><span>Short clips / Reels</span></label>
+          <label><input type="radio" name="content_format" value="written"><span>Written posts</span></label>
+          <label><input type="radio" name="content_format" value="audio"><span>Audio / podcast</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">E.2 — Realistic posting cadence</label>
+        <p class="field-desc">Be honest. Plan calls for 5x/week. What's actually sustainable?</p>
+        <div class="choice-grid">
+          <label><input type="radio" name="cadence" value="daily"><span>Daily — 7x/wk</span></label>
+          <label><input type="radio" name="cadence" value="five"><span>5x / week</span></label>
+          <label><input type="radio" name="cadence" value="three"><span>3x / week</span></label>
+          <label><input type="radio" name="cadence" value="under"><span>Less than that</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">E.3 — Dream collab or podcast guest</label>
+        <textarea name="dream_collab" placeholder="Who would you most want on a Stay Ready podcast or in a content collab?"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">E.4 — Hours/week available</label>
+        <p class="field-desc">Rough split — production / marketing / content / sales.</p>
+        <textarea name="hours_split" placeholder="e.g. Production 15hrs, content 10hrs, sales 8hrs, marketing 5hrs"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">E.5 — Network — paid help</label>
+        <p class="field-desc">Anyone in your network who could be paid part-time for specific tasks (content, fulfillment, events)?</p>
+        <textarea name="paid_help"></textarea>
+      </div>
+    </div>
+
+    <!-- F. Critical Decisions -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">F.0</span>
+        <span class="form-section-title">Critical Decisions</span>
+      </div>
+      <p class="form-section-desc">These unblock Phase 1. Need answers in the next 14 days.</p>
+
+      <div class="field">
+        <label class="field-label">F.1 — Aunt's kitchen status</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="kitchen" value="confirmed"><span>Confirmed — permit + willing</span></label>
+          <label><input type="radio" name="kitchen" value="permit_yes"><span>Has permit, need to ask her</span></label>
+          <label><input type="radio" name="kitchen" value="unknown"><span>Need to verify both</span></label>
+          <label><input type="radio" name="kitchen" value="no_go"><span>Not viable — go ghost kitchen</span></label>
+        </div>
+        <textarea name="kitchen_note" placeholder="Status / next step..." style="margin-top:12px"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">F.2 — Trademark approach</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="trademark" value="diy"><span>DIY USPTO — $350</span></label>
+          <label><input type="radio" name="trademark" value="attorney"><span>Attorney — $1,500</span></label>
+          <label><input type="radio" name="trademark" value="undecided"><span>Need a recommendation</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">F.3 — SOF / SEAL channel timing</label>
+        <div class="choice-grid">
+          <label><input type="radio" name="sof_timing" value="year1"><span>Year 1 — active push</span></label>
+          <label><input type="radio" name="sof_timing" value="year2"><span>Year 2 — credibility only</span></label>
+          <label><input type="radio" name="sof_timing" value="hybrid"><span>Hybrid — soft pitch Year 1</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">F.4 — Outside capital</label>
+        <p class="field-desc">If growth demands it (e.g. $25–50K to fund inventory or a co-packer minimum), comfort raising vs. going slower?</p>
+        <div class="choice-grid">
+          <label><input type="radio" name="capital_outside" value="open"><span>Open to it</span></label>
+          <label><input type="radio" name="capital_outside" value="line_credit"><span>Business credit line only</span></label>
+          <label><input type="radio" name="capital_outside" value="bootstrap"><span>Bootstrap or bust</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- G. Open -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <span class="form-section-num">G.0</span>
+        <span class="form-section-title">Open Feedback</span>
+      </div>
+
+      <div class="field">
+        <label class="field-label">G.1 — What scares you most about Year 1?</label>
+        <textarea name="scares" class="tall"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">G.2 — What would success feel like, beyond the $100K?</label>
+        <p class="field-desc">If we hit the number but it doesn't feel like a win, the plan was wrong.</p>
+        <textarea name="success_feel" class="tall"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">G.3 — Anything else</label>
+        <p class="field-desc">Open mic. Anything Shane should know that the plan didn't ask about.</p>
+        <textarea name="open" class="tall"></textarea>
+      </div>
+    </div>
+
+    <!-- SUBMIT BAR -->
+    <div class="submit-bar">
+      <div class="save-status">
+        <span class="dot"></span>
+        <span id="saveStatus">Auto-saved locally</span>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn" id="downloadBtn">Download answers</button>
+        <button type="button" class="btn" id="copyBtn">Copy to clipboard</button>
+        <button type="button" class="btn primary" id="emailBtn">Send to Shane</button>
+      </div>
+    </div>
+
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <span class="quote">You don't have to get ready, if you stay ready.</span>
+  <div>© 2025 Stay Ready · Strategic Field Manual · For Internal Review</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ============================================
+// CONFIG — edit before publishing
+// ============================================
+const SHANE_EMAIL = 'shane@example.com'; // ← replace with your email before deploying
+const STORAGE_KEY = 'stayready_feedback_v1';
+
+// ============================================
+// TAB NAVIGATION
+// ============================================
+const tabs = document.querySelectorAll('.nav-tab');
+const sections = document.querySelectorAll('.section');
+
+function activateTab(tabName) {
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+  sections.forEach(s => s.classList.toggle('active', s.id === tabName));
+  if (history.replaceState) {
+    history.replaceState(null, '', '#' + tabName);
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+});
+
+// Activate from URL hash on load
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    activateTab(hash);
+  }
+});
+
+// ============================================
+// CHARTS
+// ============================================
+const goldHex = '#D9A441';
+const tanHex = '#C4A77D';
+const creamHex = '#F5EDE0';
+const borderHex = '#5C4226';
+
+Chart.defaults.color = creamHex;
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.borderColor = borderHex;
+
+// Revenue Mix (Doughnut)
+function buildRevenueMix() {
+  const ctx = document.getElementById('revenueMixChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Bars (sub) 52%', 'Bars (one-time) 20%', 'Apparel 20%', 'Field Manual 5%', 'Wholesale 3%'],
+      datasets: [{
+        data: [52, 20, 20, 5, 3],
+        backgroundColor: ['#D9A441', '#A87E2E', '#C4A77D', '#7A9659', '#5C4226'],
+        borderColor: '#1A120B',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: creamHex, font: { size: 12 }, padding: 14, boxWidth: 12 }
+        },
+        title: { display: true, text: '% of $100K net profit', color: tanHex, font: { size: 12, weight: '500' } }
+      }
+    }
+  });
+}
+
+// Cumulative Net Profit (Line)
+function buildCumulative() {
+  const ctx = document.getElementById('cumulativeChart');
+  if (!ctx) return;
+  // Realistic ramp: slow first 2 months, subscription compounds, holiday push at end
+  const months = ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+  const cumulative = [1, 3, 8, 16, 27, 38, 50, 62, 73, 83, 92, 100];
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [{
+        label: 'Cumulative net ($K)',
+        data: cumulative,
+        borderColor: goldHex,
+        backgroundColor: 'rgba(217, 164, 65, 0.15)',
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: goldHex,
+        pointBorderColor: creamHex,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        borderWidth: 2.5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'Cumulative net profit ($K)', color: tanHex, font: { size: 12, weight: '500' } },
+        tooltip: {
+          backgroundColor: '#2A1D12',
+          borderColor: goldHex,
+          borderWidth: 1,
+          titleColor: goldHex,
+          bodyColor: creamHex
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(92, 66, 38, 0.3)' }, ticks: { color: tanHex } },
+        y: {
+          grid: { color: 'rgba(92, 66, 38, 0.3)' },
+          ticks: { color: tanHex, callback: v => '$' + v + 'K' },
+          beginAtZero: true,
+          max: 110
+        }
+      }
+    }
+  });
+}
+
+// Capital deployment (Bar)
+function buildCapital() {
+  const ctx = document.getElementById('capitalChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Phase 1\nFoundations', 'Phase 2\nValidation', 'Phase 3\nScale', 'Phase 4\nConsolidate'],
+      datasets: [{
+        label: 'Budget',
+        data: [8000, 10000, 5000, 2000],
+        backgroundColor: [
+          'rgba(217, 164, 65, 0.85)',
+          'rgba(217, 164, 65, 0.7)',
+          'rgba(217, 164, 65, 0.55)',
+          'rgba(217, 164, 65, 0.4)'
+        ],
+        borderColor: goldHex,
+        borderWidth: 1,
+        borderRadius: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#2A1D12',
+          borderColor: goldHex,
+          borderWidth: 1,
+          callbacks: {
+            label: ctx => '$' + ctx.parsed.y.toLocaleString()
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: tanHex } },
+        y: {
+          grid: { color: 'rgba(92, 66, 38, 0.3)' },
+          ticks: { color: tanHex, callback: v => '$' + (v/1000) + 'K' },
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+// Defer chart init until DOM ready
+window.addEventListener('DOMContentLoaded', () => {
+  buildRevenueMix();
+  buildCumulative();
+  buildCapital();
+});
+
+// ============================================
+// FORM PERSISTENCE — LOCALSTORAGE
+// ============================================
+const form = document.getElementById('feedbackForm');
+const saveStatusEl = document.getElementById('saveStatus');
+
+function getFormData() {
+  const data = {};
+  const formData = new FormData(form);
+  for (const [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+  // Also capture textareas/inputs that are empty (for completeness)
+  form.querySelectorAll('textarea, input[type="text"]').forEach(el => {
+    if (el.name && !(el.name in data)) data[el.name] = el.value || '';
+  });
+  return data;
+}
+
+function saveToStorage() {
+  try {
+    const data = getFormData();
+    data._lastSaved = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    if (saveStatusEl) {
+      const t = new Date();
+      saveStatusEl.textContent = 'Auto-saved · ' + t.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    }
+  } catch (err) {
+    console.warn('Save failed:', err);
+  }
+}
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    Object.keys(data).forEach(key => {
+      if (key.startsWith('_')) return;
+      const els = form.querySelectorAll(`[name="${key}"]`);
+      els.forEach(el => {
+        if (el.type === 'radio') {
+          if (el.value === data[key]) el.checked = true;
+        } else {
+          el.value = data[key];
+        }
+      });
+    });
+    if (data._lastSaved) {
+      const dt = new Date(data._lastSaved);
+      saveStatusEl.textContent = 'Last saved · ' + dt.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
+    }
+  } catch (err) {
+    console.warn('Load failed:', err);
+  }
+}
+
+// Auto-save on every change
+let saveTimer;
+form.addEventListener('input', () => {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveToStorage, 400);
+});
+form.addEventListener('change', saveToStorage);
+
+window.addEventListener('DOMContentLoaded', loadFromStorage);
+
+// ============================================
+// FORMAT ANSWERS FOR EXPORT
+// ============================================
+function formatAnswers() {
+  const data = getFormData();
+  const sections = [
+    {
+      title: 'A. STRATEGIC PLAN REVIEW',
+      questions: [
+        ['A.1 Phase 1 confidence', data.conf_p1, data.comment_p1],
+        ['A.2 Phase 2 confidence', data.conf_p2, data.comment_p2],
+        ['A.3 Phase 3 confidence', data.conf_p3, data.comment_p3],
+        ['A.4 Phase 4 confidence', data.conf_p4, data.comment_p4]
+      ]
+    },
+    {
+      title: 'B. BRAND & IDENTITY',
+      questions: [
+        ['B.1 Three brands you admire', data.brand_admire],
+        ['B.2 Line you won\'t cross', data.brand_line],
+        ['B.3 Anti-brand', data.brand_anti],
+        ['B.4 Aesthetic vibe', data.brand_vibe],
+        ['B.5 What "Stay Ready" means privately', data.brand_meaning]
+      ]
+    },
+    {
+      title: 'C. PRODUCT DECISIONS',
+      questions: [
+        ['C.1 Subscription pricing', data.sub_price, data.sub_price_note],
+        ['C.2 Apparel target retail', data.apparel_price, data.apparel_price_note],
+        ['C.3 Field manual model', data.fm_model],
+        ['C.4 Closest existing bar', data.bar_reference],
+        ['C.5 Next bar SKU', data.next_sku]
+      ]
+    },
+    {
+      title: 'D. CUSTOMER & COMMUNITY',
+      questions: [
+        ['D.1 Ideal customer in 3 sentences', data.ideal_customer],
+        ['D.2 Ambassador program', data.ambassador, data.ambassador_note],
+        ['D.3 First community ritual', data.ritual]
+      ]
+    },
+    {
+      title: 'E. CONTENT & OPERATIONS',
+      questions: [
+        ['E.1 Most natural content format', data.content_format],
+        ['E.2 Realistic posting cadence', data.cadence],
+        ['E.3 Dream collab', data.dream_collab],
+        ['E.4 Hours/week split', data.hours_split],
+        ['E.5 Network — paid help', data.paid_help]
+      ]
+    },
+    {
+      title: 'F. CRITICAL DECISIONS',
+      questions: [
+        ['F.1 Aunt\'s kitchen status', data.kitchen, data.kitchen_note],
+        ['F.2 Trademark approach', data.trademark],
+        ['F.3 SOF / SEAL timing', data.sof_timing],
+        ['F.4 Outside capital comfort', data.capital_outside]
+      ]
+    },
+    {
+      title: 'G. OPEN FEEDBACK',
+      questions: [
+        ['G.1 What scares you most', data.scares],
+        ['G.2 What success feels like', data.success_feel],
+        ['G.3 Anything else', data.open]
+      ]
+    }
+  ];
+
+  let out = 'STAY READY — STRATEGIC PLAN FEEDBACK\n';
+  out += '=====================================\n';
+  out += 'Submitted: ' + new Date().toLocaleString() + '\n\n';
+
+  sections.forEach(section => {
+    out += '\n' + section.title + '\n';
+    out += '-'.repeat(section.title.length) + '\n';
+    section.questions.forEach(([label, ...values]) => {
+      out += '\n' + label + ':\n';
+      const filtered = values.filter(v => v && v.trim());
+      if (filtered.length === 0) {
+        out += '  (no answer)\n';
+      } else {
+        filtered.forEach(v => {
+          out += '  ' + v.replace(/\n/g, '\n  ') + '\n';
+        });
+      }
+    });
+  });
+
+  return out;
+}
+
+// ============================================
+// SUBMIT ACTIONS
+// ============================================
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  const text = formatAnswers();
+  const blob = new Blob([text], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'stayready-feedback-' + new Date().toISOString().slice(0, 10) + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  const text = formatAnswers();
+  try {
+    await navigator.clipboard.writeText(text);
+    const btn = document.getElementById('copyBtn');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    setTimeout(() => btn.textContent = orig, 2000);
+  } catch (err) {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('Copied to clipboard');
+  }
+});
+
+document.getElementById('emailBtn').addEventListener('click', () => {
+  const text = formatAnswers();
+  const subject = encodeURIComponent('Stay Ready — strategic plan feedback');
+  const body = encodeURIComponent(text);
+  window.location.href = `mailto:${SHANE_EMAIL}?subject=${subject}&body=${body}`;
+});
+</script>
+
+</body>
+</html>
